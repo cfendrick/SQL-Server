@@ -4,7 +4,7 @@ Most valuable professionals in Microsoft SQL Server Database world
 | Name                | Site/Blog                  | City      | Twitter           | Email                             |
 |---------------------|----------------------------|-----------|-------------------|-----------------------------------|
 | Brent Ozar          | [Brent Ozar Blog]          | Las Vegas | [@BrentO]         | help@brentozar.com                |
-| Adam Machanic       | [SQLBlog]                  | Boston    | [@AdamMachanic]   | NULL                              |
+| Adam Machanic       | [Data Education]           | Boston    | [@AdamMachanic]   | NULL                              |
 | Ola Hallengren      | [Ola Maintenance Solution] | NULL      | [@olahallengren]  | ola@hallengren.com                |
 | Erland Sommarskog   | [Sommarskog Blog]          | NULL      | NULL              | esquel@sommarskog.se              |
 | Phil Factor         | [Phil Simple-Talk]         | NULL      | [@phil_factor]    | NULL                              |
@@ -12,17 +12,12 @@ Most valuable professionals in Microsoft SQL Server Database world
 | Glenn Alan Berry    | [Glenn Blog]               | NULL      | [@GlennAlanBerry] | glenn@SQLskills.com               |
 | Kenneth Fisher      | [Kenneth Blog]             | NULL      | [@sqlstudent144]  | sqlstudent144@gmail.com           |
 | Kendra Little       | [Kendra Blog]              | NULL      | [@Kendra_Little]  | NULL                              |
-| Jeff Moden          | [Jeff Articles]            | NULL      | NULL              | NULL                              |
 | Paul White          | [Paul SQLBlog]             | NULL      | [@SQL_Kiwi]       | NULL                              |
 | Jason Strate        | [Jason Blog]               | NULL      | [@StrateSQL]      | NULL                              |
 | Gail Shaw           | [Gail Blog]                | NULL      | [@SQLintheWild]   | NULL                              |
 | Aaron Bertrand      | [Aaron Articles]           | NULL      | [@AaronBertrand]  | NULL                              |
 | Kevin Kline         | [Kevin Blog]               | NULL      | [@kekline]        | kevin_e_kline@yahoo.com           |
-| Robert Virag        | [Robert Blog]              | NULL      | NULL              | NULL                              |
 | John Sansom         | [John Blog]                | NULL      | [@SqlBrit]        | NULL                              |
-| Jes Borland         | [Jes Articles]             | NULL      | [@grrl_geek]      | NULL                              |
-| Sean Smith          | [Sean Scripts]             | NULL      | NULL              | NULL                              |
-| Richie Rump         | [Richie Blog]              | NULL      | [@Jorriss]        | NULL                              |
 | Tara Kizer          | [Tara Articles]            | NULL      | [@TaraKizer]      | NULL                              |
 | Paul S. Randal      | [Paul Articles]            | NULL      | [@PaulRandal]     | paul@sqlskills.com                |
 | Klaus Aschenbrenner | [Klaus Blog]               | NULL      | [@Aschenbrenner]  | klaus.aschenbrenner@sqlpassion.at |
@@ -50,10 +45,9 @@ Most valuable professionals in Microsoft SQL Server Database world
 | Erik Darling        | [Erik Darling Blog]        | NULL      | [@erikdarling]    | NULL                              |
 | Andy Mallon         | [Andy Mallon Blog]         | NULL      | [@AMtwo]          | NULL                              |
 | Anthony Nocentino   | [Anthony Nocentino Blog]   | NULL      | [@nocentino]      | NULL                              |
-| Mike Freeman        | [Mike Freeman Blog]        | NULL      | [@mf_dba]         | NULL                              |
 
 [Brent Ozar Blog]:http://www.brentozar.com/
-[SQLBlog]:http://sqlblog.com
+[Data Education]:http://dataeducation.com/
 [Ola Maintenance Solution]:https://ola.hallengren.com/
 [Sommarskog Blog]:http://www.sommarskog.se/
 [Phil Simple-Talk]:https://www.simple-talk.com/author/phil-factor/
@@ -61,16 +55,12 @@ Most valuable professionals in Microsoft SQL Server Database world
 [Glenn Blog]:https://sqlserverperformance.wordpress.com/
 [Kenneth Blog]:http://sqlstudies.com/
 [Kendra Blog]:http://www.littlekendra.com/
-[Jeff Articles]:http://www.sqlservercentral.com/Authors/Articles/Jeff_Moden/80567/
-[Paul SQLBlog]:http://sqlblog.com/blogs/paul_white/
+[Paul SQLBlog]:https://www.sql.kiwi/
 [Jason Blog]:http://www.jasonstrate.com/
 [Gail Blog]:http://sqlinthewild.co.za
 [Aaron Articles]:http://sqlperformance.com/author/abertrand
 [Kevin Blog]:http://kevinekline.com/
-[Robert Blog]:http://www.sqlapprentice.net/
 [John Blog]:http://www.johnsansom.com/
-[Jes Articles]:http://blogs.lessthandot.com/index.php/author/grrlgeek/
-[Sean Scripts]:http://www.sqlservercentral.com/Authors/Scripts/Sean_Smith/776614/
 [Richie Blog]:http://www.jorriss.net/
 [Tara Articles]:https://www.brentozar.com/archive/author/tara/
 [Paul Articles]:http://www.sqlskills.com/blogs/paul/
@@ -90,6 +80,15 @@ Most valuable professionals in Microsoft SQL Server Database world
 [Ed Elliott Blog]:https://the.agilesql.club/Blogs/Ed-Elliott/About
 [Andy Yun Blog]:https://sqlbek.wordpress.com
 [Sander Stad Blog]:http://www.sqlstad.nl
+[Pinal Dave Blog]:https://blog.sqlauthority.com/
+[Brad McGehee Blog]:https://www.sqlservercentral.com/author/brad-mcgehee
+[Bob Ward Blog]:https://learn.microsoft.com/sql/sql-server/blogs
+[Erin Stellato Blog]:https://www.sqlskills.com/blogs/erin/
+[Joey DAntoni Blog]:https://www.joeydantoni.com/
+[Justin Grant Blog]:https://www.justingrant.net/
+[Erik Darling Blog]:https://www.erikdarlingdata.com/
+[Andy Mallon Blog]:https://www.am2.co/
+[Anthony Nocentino Blog]:https://centinosystems.com/blog/
 
 [@BrentO]:https://twitter.com/BrentO
 [@AdamMachanic]:https://twitter.com/AdamMachanic
@@ -104,8 +103,6 @@ Most valuable professionals in Microsoft SQL Server Database world
 [@AaronBertrand]:https://twitter.com/AaronBertrand
 [@kekline]:https://twitter.com/kekline
 [@SqlBrit]:https://twitter.com/SqlBrit
-[@grrl_geek]:https://twitter.com/grrl_geek
-[@Jorriss]:https://twitter.com/Jorriss
 [@TaraKizer]:https://twitter.com/TaraKizer
 [@PaulRandal]:https://twitter.com/PaulRandal
 [@Aschenbrenner]:https://twitter.com/Aschenbrenner
@@ -134,13 +131,3 @@ Most valuable professionals in Microsoft SQL Server Database world
 [@mf_dba]:https://twitter.com/mf_dba
 [@nocentino]:https://twitter.com/nocentino
 [@pinaldave]:https://twitter.com/pinaldave
-[Pinal Dave Blog]:https://blog.sqlauthority.com/
-[Brad McGehee Blog]:https://www.sqlservercentral.com/author/brad-mcgehee
-[Bob Ward Blog]:https://learn.microsoft.com/sql/sql-server/blogs
-[Erin Stellato Blog]:https://www.sqlskills.com/blogs/erin/
-[Joey DAntoni Blog]:https://www.joeydantoni.com/
-[Justin Grant Blog]:https://www.justingrant.net/
-[Erik Darling Blog]:https://www.erikdarlingdata.com/
-[Andy Mallon Blog]:https://www.am2.co/
-[Anthony Nocentino Blog]:https://centinosystems.com/blog/
-[Mike Freeman Blog]:https://www.mfdbaservices.com/blog/

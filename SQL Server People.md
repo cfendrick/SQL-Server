@@ -24,7 +24,6 @@ Most valuable professionals in Microsoft SQL Server Database world
 | Tim Ford            | [Tim Blog]                 | NULL      | [@sqlagentman]    | NULL                              |
 | Steve Jones         | [Steve Jones Blog]         | NULL      | [@way0utwest]     | NULL                              |
 | Thomas Larock       | [Thomas Larock Blog]       | NULL      | [@sqlrockstar]    | NULL                              |
-| Chrissy LeMaire     | [Chrissy LeMaire Blog]     | NULL      | [@cl]             | NULL                              |
 | Tim Mitchell        | [Tim Mitchell Blog]        | NULL      | [@Tim_Mitchell]   | NULL                              |
 | Ken Van Hyning      | [Ken Van Hyning MVP]       | NULL      | [@sqltoolsguy]    | NULL                              |
 | Ed Elliott          | [Ed Elliott Blog]          | London    | [@EdDebug]        | ed.elliott@outlook.com            |

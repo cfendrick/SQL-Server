@@ -1,0 +1,75 @@
+/*===========================================================
+  SQL 2019 FCI Active/Passive Node report via Linked Servers
+  Run on: is1db
+  Uses: EXEC('...') AT [LinkedServer]  (RPC method you validated)
+  Needs on each remote SQL instance: VIEW SERVER STATE
+===========================================================*/
+SET NOCOUNT ON;
+
+IF OBJECT_ID('tempdb..#Targets') IS NOT NULL DROP TABLE #Targets;
+CREATE TABLE #Targets (LinkedServer sysname NOT NULL PRIMARY KEY);
+
+INSERT INTO #Targets (LinkedServer)
+VALUES
+('APP100db'),('APP101db'),('APP102db'),('APP103db'),('APP104db'),('APP105db'),('APP106db'),('APP107db'),('APP108db'),
+('is1db'); -- local
+
+IF OBJECT_ID('tempdb..#Results') IS NOT NULL DROP TABLE #Results;
+CREATE TABLE #Results
+( LinkedServer sysname NOT NULL,  SqlInstance  sysname NULL,  ActiveNode sysname  NULL,
+  PassiveNode  sysname NULL, Note nvarchar(4000) NULL,  CollectedAt  datetime2(0) NOT NULL DEFAULT (SYSDATETIME()) );
+
+DECLARE @ls sysname;
+DECLARE @inner nvarchar(max);
+DECLARE @outer nvarchar(max);
+
+DECLARE cur CURSOR LOCAL FAST_FORWARD FOR
+    SELECT LinkedServer FROM #Targets ORDER BY LinkedServer;
+
+OPEN cur;
+FETCH NEXT FROM cur INTO @ls;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    BEGIN TRY
+        IF @ls = 'is1db' OR @ls = @@SERVERNAME
+        BEGIN
+            INSERT INTO #Results (LinkedServer, SqlInstance, ActiveNode, PassiveNode, Note)
+            SELECT @ls, CAST(@@SERVERNAME AS sysname), MAX(CASE WHEN is_current_owner = 1 THEN NodeName END), MAX(CASE WHEN is_current_owner = 0 THEN NodeName END),
+                CASE WHEN COUNT(*) = 0 THEN 'sys.dm_os_cluster_nodes returned 0 rows (not FCI or no permission)'
+                     WHEN COUNT(*) <> 2 THEN CONCAT('Expected 2 nodes; found ', COUNT(*), '.')
+                    ELSE NULL
+                END
+            FROM sys.dm_os_cluster_nodes;
+        END
+        ELSE
+        BEGIN    -- This query runs on the REMOTE instance via EXEC AT
+            SET @inner = N'SELECT SqlInstance  = CAST(@@SERVERNAME AS sysname),
+								  ActiveNode   = MAX(CASE WHEN is_current_owner = 1 THEN NodeName END),
+								  PassiveNode  = MAX(CASE WHEN is_current_owner = 0 THEN NodeName END),
+								  Note         = CASE
+												  WHEN COUNT(*) = 0 THEN ''sys.dm_os_cluster_nodes returned 0 rows (not FCI or no permission)''
+												  WHEN COUNT(*) <> 2 THEN CONCAT(''Expected 2 nodes; found '', COUNT(*), ''.'')
+													 ELSE NULL
+												   END
+										FROM sys.dm_os_cluster_nodes;';
+            -- Outer dynamic is only so we can embed the linked server name literally in "AT [name]"
+            SET @outer = N' INSERT INTO #Results (LinkedServer, SqlInstance, ActiveNode, PassiveNode, Note)
+							SELECT N''' + REPLACE(@ls,'''','''''') + N''', r.SqlInstance, r.ActiveNode, r.PassiveNode, r.Note
+							FROM OPENQUERY(' + QUOTENAME(@ls) + N', ''' + REPLACE(@inner,'''','''''') + N''') AS r;      		';
+            -- IMPORTANT:OPENQUERY here uses the same linked server plumbing (and avoids needing "AT @variable").
+            EXEC sys.sp_executesql @outer;
+        END
+    END TRY
+    BEGIN CATCH
+        INSERT INTO #Results (LinkedServer, Note) VALUES (@ls, CONCAT('ERROR: ', ERROR_MESSAGE()));
+    END CATCH;
+    FETCH NEXT FROM cur INTO @ls;
+END
+
+CLOSE cur;
+DEALLOCATE cur;
+
+SELECT LinkedServer, SqlInstance,ActiveNode,PassiveNode,Note AS 'Error Handling',CollectedAt
+FROM #Results
+ORDER BY LinkedServer;
